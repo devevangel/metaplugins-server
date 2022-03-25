@@ -10,8 +10,8 @@ exports.uploadFiles = catchAsync(async (req, res, next) => {
   const uploadedImage = await cloudinary.uploader.upload(
     req.files["image"][0].path,
     {
-      folder: `metaplugin/Image/image-${req.body.name}`,
-      public_id: `${req.body.name}-${req.files["image"][0].originalname}`,
+      folder: `metaplugin/Images/image-${req.body.name}`,
+      public_id: `${req.body.name}`,
       resource_type: "auto",
       overwrite: true,
       transformation: [{ width: 500, height: 500, crop: "limit", quality: 50 }],
@@ -22,10 +22,9 @@ exports.uploadFiles = catchAsync(async (req, res, next) => {
     req.files["plugin"][0].path,
     {
       folder: `metaplugin/Plugins/plugin-${req.body.name}`,
-      public_id: `${req.body.name}-${req.files["plugin"][0].originalname}`,
+      public_id: `${req.body.name}`,
       resource_type: "auto",
       overwrite: true,
-      transformation: [{ width: 500, height: 500, crop: "limit", quality: 50 }],
     }
   );
 
