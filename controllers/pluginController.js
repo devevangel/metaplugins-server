@@ -21,7 +21,7 @@ exports.uploadFiles = catchAsync(async (req, res, next) => {
   const uploadedPlugin = await cloudinary.uploader.upload(
     req.files["plugin"][0].path,
     {
-      folder: `metaplugin/Plugins`,
+      folder: `metaplugin/Plugins/plugin-${req.body.name}`,
       public_id: `${req.body.name}`,
       resource_type: "auto",
       overwrite: true,
